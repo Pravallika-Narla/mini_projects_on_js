@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea  id="result"></textarea>
+    <input type="button" value="1" onclick="display('1')">
+    <input type="button" value="2" onclick="display('2')">
+    <input type="button" value="3" onclick="display('3')">
+    <input type="button" value="+" onclick="display('+')">
+    <input type="button" value="=" onclick="solve()">
+    <input type="button" value="c" onclick="clr()">
+    <input type="button" value="history" onclick="h()">
+    <script>
+        var his =""
+        var result=document.getElementById("result")
+        function display(a){
+            result.value +=a
+        }
+        function solve(){
+            var x = result.value
+            his += "-->"+x+"\n"
+            var y = eval(x)
+            his += "=="+y+"\n"
+            result.value=y
+
+        }
+        function clr(){
+            console.log(result.value)
+            result.value=""
+        }
+
+        function h(){
+            result.value = his
+        }
+        
+    </script>
+</body>
+</html>
